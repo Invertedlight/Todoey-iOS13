@@ -88,16 +88,10 @@ class TodoListViewController: UITableViewController {
     
     //MARK: - TableView Delegate Methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let checked = tableView.cellForRow(at: indexPath)?.accessoryType.rawValue
-        if  checked == UITableViewCell.AccessoryType.checkmark.rawValue {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .none
-            itemArray[indexPath.row].checked = false
-        } else {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-            itemArray[indexPath.row].checked = true
-        }
+        itemArray[indexPath.row].checked = !itemArray[indexPath.row].checked
         updateStoreage()
         tableView.deselectRow(at: indexPath, animated: true)
+        tableView.reloadData()
     }
     
     //MARK: - Add New Item
