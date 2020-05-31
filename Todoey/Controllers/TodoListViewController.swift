@@ -73,6 +73,7 @@ class TodoListViewController: UITableViewController {
         
     }
     
+    //MARK: - plist data management
     @IBAction func clearListPressed(_ sender: UIBarButtonItem) {
         self.itemArray = []
         saveItems()

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		96C3E6382483242F0032EDF9 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C3E6372483242F0032EDF9 /* ToDoItem.swift */; };
+		96CE9B6824845BA5008677A1 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CE9B6724845BA5008677A1 /* UIColorExtension.swift */; };
 		EB2BE4FA239524DB00FB933B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2BE4F9239524DB00FB933B /* AppDelegate.swift */; };
 		EB2BE4FE239524DB00FB933B /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2BE4FD239524DB00FB933B /* TodoListViewController.swift */; };
 		EB2BE501239524DB00FB933B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB2BE4FF239524DB00FB933B /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		96C3E6372483242F0032EDF9 /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
+		96CE9B6724845BA5008677A1 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		EB2BE4F6239524DB00FB933B /* Todoey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todoey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB2BE4F9239524DB00FB933B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB2BE4FD239524DB00FB933B /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +63,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		96CE9B6624845B87008677A1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				96CE9B6724845BA5008677A1 /* UIColorExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		EB2BE4ED239524DB00FB933B = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +90,7 @@
 		EB2BE4F8239524DB00FB933B /* Todoey */ = {
 			isa = PBXGroup;
 			children = (
+				96CE9B6624845B87008677A1 /* Extensions */,
 				EB2BE4F9239524DB00FB933B /* AppDelegate.swift */,
 				96C3E63A248327F20032EDF9 /* View */,
 				96C3E639248324390032EDF9 /* Model */,
@@ -165,6 +176,7 @@
 				EB2BE4FE239524DB00FB933B /* TodoListViewController.swift in Sources */,
 				96C3E6382483242F0032EDF9 /* ToDoItem.swift in Sources */,
 				EB2BE4FA239524DB00FB933B /* AppDelegate.swift in Sources */,
+				96CE9B6824845BA5008677A1 /* UIColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
