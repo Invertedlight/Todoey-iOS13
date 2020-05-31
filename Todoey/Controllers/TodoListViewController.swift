@@ -81,7 +81,7 @@ class TodoListViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
         cell.textLabel?.text = todoItem.itemTitle
         cell.textLabel?.backgroundColor = UIColor(cgColor: todoItem.itemColor)
-        cell.accessoryType = todoItem.checked == true ?  UITableViewCell.AccessoryType.checkmark : .none
+        cell.accessoryType = todoItem.checked == true ? .checkmark : .none
         return cell
         
     }
