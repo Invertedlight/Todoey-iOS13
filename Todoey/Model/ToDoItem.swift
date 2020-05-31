@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 
-class ToDoItem: Encodable {
+class ToDoItem: Codable {
     var id: Int
     var itemTitle : String
     var itemColorString : String
