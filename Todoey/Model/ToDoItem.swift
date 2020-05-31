@@ -14,13 +14,13 @@ class ToDoItem {
     var id: Int
     var itemTitle : String
     var itemColor : CGColor
-    var checked : Bool
+    var isChecked : Bool
     
     init(id: Int, itemTitle: String, itemColor: CGColor, isChecked: Bool){
         self.id = id
         self.itemTitle = itemTitle
         self.itemColor = itemColor
-        self.checked = isChecked
+        self.isChecked = isChecked
     }
     
 }

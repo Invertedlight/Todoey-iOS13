@@ -9,26 +9,9 @@
 import UIKit
 
 class TodoListViewController: UITableViewController {
-    
-    //var itemArray : [ToDoItem] = []
-    /*       ToDoItem(id: 1, itemTitle: "Buy Eggos", itemColor: CGColor(srgbRed: CGFloat(Float.random(in: 0.3...0.8)) ,
-     green: CGFloat(Float.random(in: 0.3...0.8)) ,
-     blue: CGFloat(Float.random(in: 0.3...0.8)) ,
-     alpha: 1.0)),
-     ToDoItem(id: 2, itemTitle: "Stop Gorgon", itemColor: CGColor(srgbRed: CGFloat(Float.random(in: 0.3...0.8)) ,
-     green: CGFloat(Float.random(in: 0.3...0.8)) ,
-     blue: CGFloat(Float.random(in: 0.3...0.8)) ,
-     alpha: 1.0)),
-     ToDoItem(id: 3, itemTitle: "Find Fred", itemColor: CGColor(srgbRed: CGFloat(Float.random(in: 0.3...0.8)) ,
-     green: CGFloat(Float.random(in: 0.3...0.8)) ,
-     blue: CGFloat(Float.random(in: 0.3...0.8)) ,
-     alpha: 1.0))
-     ]*/
-    
+
     var itemArray: [ToDoItem] = []
-    
     var storage : [[String]] = []
-    
     let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
@@ -48,15 +31,8 @@ class TodoListViewController: UITableViewController {
                 let red = array[2]
                 let green = array[3]
                 let blue = array[4]
-                let checked = array[5]
-                
-                var isChecked = false
-                if checked == "true" {
-                     isChecked = true
-                } else {
-                     isChecked = false
-                }
-                
+                let isChecked = array[5] == "true" ? true : false
+                                
                 // print("\(id)  \(name)  \(red)  \(green)  \(blue)")
                 let newItem = ToDoItem(id: Int(id)!, itemTitle: name, itemColor: CGColor(srgbRed: CGFloat(Float(red)!), green: CGFloat(Float(green)!), blue: CGFloat(Float(blue)!), alpha: 1.0), isChecked: isChecked)
                 self.itemArray.append(newItem)
@@ -81,14 +57,14 @@ class TodoListViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
         cell.textLabel?.text = todoItem.itemTitle
         cell.textLabel?.backgroundColor = UIColor(cgColor: todoItem.itemColor)
-        cell.accessoryType = todoItem.checked == true ? .checkmark : .none
+        cell.accessoryType = todoItem.isChecked == true ? .checkmark : .none
         return cell
         
     }
     
     //MARK: - TableView Delegate Methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        itemArray[indexPath.row].checked = !itemArray[indexPath.row].checked
+        itemArray[indexPath.row].isChecked = !itemArray[indexPath.row].isChecked
         updateStoreage()
         tableView.deselectRow(at: indexPath, animated: true)
         tableView.reloadData()
@@ -144,19 +120,19 @@ class TodoListViewController: UITableViewController {
         self.storage = []
         print("STORAGE: \(self.storage)")
         self.defaults.removeObject(forKey: "ToDoListStorage")
-        for array in itemArray {
-            let colorComponents = array.itemColor.components
+        for toDoItem in itemArray {
+            let colorComponents = toDoItem.itemColor.components
             let red = colorComponents![0]
             let green = colorComponents![1]
             let blue = colorComponents![2]
             //let alpha = colorComponents![3]
             
-            self.storage.append([String(array.id),
-                                 array.itemTitle,
+            self.storage.append([String(toDoItem.id),
+                                 toDoItem.itemTitle,
                                  String(Float(red)),
                                  String(Float(green)),
                                  String(Float(blue)),
-                                 String(array.checked) ])
+                                 String(toDoItem.isChecked) ])
         }
         self.defaults.set(self.storage, forKey: "ToDoListStorage")
     }
